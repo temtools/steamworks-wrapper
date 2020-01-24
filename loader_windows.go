@@ -24,8 +24,9 @@ var (
 	steamInternalCreateInterface *syscall.Proc
 
 	// user
-	steamApiGetSteamUser *syscall.Proc
-	steamApiGetSteamPipe *syscall.Proc
+	steamApiGetSteamUser         *syscall.Proc
+	steamApiGetSteamPipe         *syscall.Proc
+	steamApiISteamUserGetSteamID *syscall.Proc
 
 	// steam client
 	steamApiISteamClientGetISteamUser  *syscall.Proc
@@ -99,6 +100,7 @@ func init() {
 	steamApiISteamClientGetISteamUtils = dll.MustFindProc("SteamAPI_ISteamClient_GetISteamUtils")
 	steamApiISteamUserRequestEncryptedAppTicket = dll.MustFindProc("SteamAPI_ISteamUser_RequestEncryptedAppTicket")
 	steamApiISteamUserGetEncryptedAppTicket = dll.MustFindProc("SteamAPI_ISteamUser_GetEncryptedAppTicket")
+	steamApiISteamUserGetSteamID = dll.MustFindProc("SteamAPI_ISteamUser_GetSteamID")
 	steamApiISteamUtilsIsCallbackCompleted = dll.MustFindProc("SteamAPI_ISteamUtils_IsAPICallCompleted")
 	steamApiISteamUtilsGetAPICallFailureReason = dll.MustFindProc("SteamAPI_ISteamUtils_GetAPICallFailureReason")
 

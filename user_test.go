@@ -2,9 +2,10 @@ package steamworks_wrapper
 
 import "testing"
 
-func TestGetUser(t *testing.T) {
+func TestUser_GetSteamID(t *testing.T) {
 	u := GetUser()
-	if u.userHandle == 0 {
-		t.Error("could not get steam user")
+	steamID := u.GetSteamID()
+	if steamID != "76561198041062849" {
+		t.Errorf("steamID was %s", steamID)
 	}
 }

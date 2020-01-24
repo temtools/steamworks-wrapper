@@ -10,7 +10,7 @@ import (
 
 const (
 	uintptrSize           uintptr = 0
-	sizeOfSteamApiContext         = 512
+	sizeOfSteamApiContext         = 192
 	steamApiContextSize           = 2 + (sizeOfSteamApiContext / unsafe.Sizeof(uintptrSize))
 )
 
@@ -37,6 +37,7 @@ var (
 
 	// encrypted app tickets
 	steamApiISteamUserRequestEncryptedAppTicket *syscall.Proc
+	steamApiISteamUserGetEncryptedAppTicket     *syscall.Proc
 
 	// user/pipe state
 	user int32
@@ -97,6 +98,7 @@ func init() {
 	steamApiISteamClientGetISteamUser = dll.MustFindProc("SteamAPI_ISteamClient_GetISteamUser")
 	steamApiISteamClientGetISteamUtils = dll.MustFindProc("SteamAPI_ISteamClient_GetISteamUtils")
 	steamApiISteamUserRequestEncryptedAppTicket = dll.MustFindProc("SteamAPI_ISteamUser_RequestEncryptedAppTicket")
+	steamApiISteamUserGetEncryptedAppTicket = dll.MustFindProc("SteamAPI_ISteamUser_GetEncryptedAppTicket")
 	steamApiISteamUtilsIsCallbackCompleted = dll.MustFindProc("SteamAPI_ISteamUtils_IsAPICallCompleted")
 	steamApiISteamUtilsGetAPICallFailureReason = dll.MustFindProc("SteamAPI_ISteamUtils_GetAPICallFailureReason")
 
